@@ -78,7 +78,7 @@
 	<distributionManagement>
 	  <snapshotRepository>
 	    <id>nexus</id>
-	    <url>http://18.221.106.86:8081/nexus/content/repositories/snapshots</url>
+	    <url>http://52.14.118.47:8081/nexus/content/repositories/snapshots</url>
 	  </snapshotRepository>
 	</distributionManagement>
 	
@@ -113,6 +113,29 @@
 			    <artifactId>sonar-maven-plugin</artifactId>
 			    <version>3.7.0</version>
 			</plugin>
+			
+			<plugin>
+
+        <groupId>org.flywaydb</groupId>
+
+        <artifactId>flyway-maven-plugin</artifactId>
+
+        <version>6.3.2</version>
+
+<configuration>
+                <url>jdbc:mysql://52.14.118.47:3306</url>
+
+                <user>flyuser2</user>
+
+                <password>H@ckath0n</password>
+
+               <schemas>
+                        <schema>parkingtest</schema>
+
+              </schemas>
+ </configuration>     
+
+</plugin>
 		</plugins>
 	</build>
 </project>
