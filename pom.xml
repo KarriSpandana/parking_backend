@@ -75,13 +75,24 @@
 			<version>7.41.2</version>
 		</dependency>
 	</dependencies>
+	<scm>
+        <connection>scm:https://github.com/karrispandana/parking_backend.git</connection>
+    <developerConnection>scm:git:https://github.com/KarriSpandana:kasturiraj20@github.com/parking_backend.git</developerConnection>
+    <url>https://github.com/KarriSpandana/parking_backend.git</url>
+    <tag>HEAD</tag>
+  </scm>
 	<distributionManagement>
-	  <snapshotRepository>
-	    <id>nexus</id>
-	    <url>http://52.14.118.47:8081/nexus/content/repositories/snapshots</url>
-	  </snapshotRepository>
+	         <snapshotRepository>
+		 <id>nexus</id>
+		<url>http://172.31.22.1:8081/nexus/content/repositories/snapshots</url>
+		 </snapshotRepository> 
+			  <repository>
+			<id>nexus</id>
+			<url>http://172.31.22.1:8081/nexus/content/repositories/releases</url>
+	               </repository>
+		
 	</distributionManagement>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -123,7 +134,7 @@
         <version>6.3.2</version>
 
 <configuration>
-                <url>jdbc:mysql://52.14.118.47:3306</url>
+                <url>jdbc:mysql://172.31.22.1:3306</url>
 
                 <user>flyuser2</user>
 
@@ -136,6 +147,19 @@
  </configuration>     
 
 </plugin>
+			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+                 </plugin>
+
 		</plugins>
 	</build>
 </project>
